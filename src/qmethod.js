@@ -297,13 +297,14 @@ app.config(function ($stateProvider, $locationProvider) {
 });
 
 var config = {
-	apiKey: "AIzaSyA15U4F-Q97flUntlLtVCaKDioVOhpszWA",
-	authDomain: "qmethod-87099.firebaseapp.com",
-	databaseURL: "https://qmethod-87099.firebaseio.com",
-	projectId: "qmethod-87099",
-	storageBucket: "qmethod-87099.appspot.com",
-	messagingSenderId: "639626576200"
+    apiKey: "AIzaSyD9696uuH1Rug9S2Jh0gYOAPcP8okUP8Ps",
+    authDomain: "qmethod-443fd.firebaseapp.com",
+    databaseURL: "https://qmethod-443fd.firebaseio.com",
+    projectId: "qmethod-443fd",
+    storageBucket: "qmethod-443fd.appspot.com",
+    messagingSenderId: "929137181105"
 };
+
 if (!angular.equals({},config)) {
   	  firebase.initializeApp(config);
 	  var rootRef = firebase.database().ref();
