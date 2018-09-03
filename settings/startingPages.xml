@@ -37,7 +37,7 @@
 	</div>
 	
 	<div>
-		<center><h2><b>ABOUT  REVIEWS</b></h2></center><br/>
+		<center><h2><b>ABOUT BUG-INTRODUCING CHANGES</b></h2></center><br/>
 	
 		<b><center>PLEASE READ THIS BOX ENTIRELY, IT IS CRUCIAL TO THE NEXT STEPS</center></b><br/><br/>
 		
@@ -46,7 +46,7 @@
 	
 		This study is about the perceptions and attitudes of developers to recognize information that helps to identify changes that introduce bugs during software development.<br/><br/>
 		
-		<b>WHAT IS A BUG INTRODUCING CHANGE?</b><br/>
+		<b>WHAT IS A BUG-INTRODUCING CHANGE?</b><br/>
 
 		During the process of development and evolution of software, inevitably, developers perform changes. These changes may introduce bugs, also known as bug-introducing changes[1].<br/><br/>
 		
