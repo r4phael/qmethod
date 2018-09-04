@@ -9,68 +9,86 @@
 	<input type="select" required="true" maxlength="40" key="edu">
 		<label>Please select your educational level.</label>
 		<option name="PhD">phd</option>
-		<option name="PhD Candidate">phdc</option>
+		<option name="PhD Student">phdstu</option>
 		<option name="Master">msc</option>
-		<option name="Master Candidate">mscc</option>
-		<option name="Graduate">bsc</option>
-		<option name="Undergraduate">bscc</option>
+		<option name="Master Student">mscstu</option>
+		<option name="Undergraduate">und</option>
+		<option name="Undergraduate Student">undstud</option>
+		<option name="Other">other</option>
 	</input>
 
-	<input type="select" required="true" maxlength="40" key="occupation">
-		<label>Please select your main occupation.</label>
-		<option name="Research in Academia-academia">research</option>
-		<option name="Research in Industry-industry">research</option>
-		<option name="Practice in Industry-industry">practice</option>
+	<input type="multiCheckbox" required="true" maxlength="40" key="occupation">
+		<label>What is your current job? (You can select multiple options)</label>
+		<option name="Open-Source Developer ">opedev</option>
+		<option name="Industrial Developer">inddev</option>
+		<option name="Academic Researcher">acares</option>
+		<option name="Industrial Researcher">indres</option>
+		<option name="Other">other</option>
 	</input>
 
 	<input type="select" required="true" key="leve_exp">
-		<label>Please select your level of experience in software development.</label>
-		<option name="Junior Developer">jr</option>
-		<option name="Middle Developer">mid</option>
-		<option name="Senior Developer">sr</option>
+		<label>Please rate your expertise with software development.</label>
+		<option name="Very poor">vpoor</option>
+		<option name="Poor">poor</option>
+		<option name="Fair">fair</option>
+		<option name="High">high</option>
+		<option name="Very high">vhigh</option>
 	</input>
 
-	<input type="radio" required="true" key="main_role">
-		<label>Please select your main role during software development life-cycle.</label>
-		<option name="Developer">dev</option>
-		<option name="Reviewer">rev</option>
-		<option name="Both">both</option>
+	<input type="select" required="true" key="code_review">
+		<label>Please rate your expertise with code review.</label>
+		<option name="Very poor">vpoor</option>
+		<option name="Poor">poor</option>
+		<option name="Fair">fair</option>
+		<option name="High">high</option>
+		<option name="Very high">vhigh</option>
 	</input>
 
-	<input type="select" required="true" key="rev_cod">
-		<label>How many years of experience do you have reviewing code?</label>
-		<option name="Less than one year">less1</option>
-		<option name="Between 1 and 3 years">bet13</option>
-		<option name="Between 3 and 5 years">bet35</option>
-		<option name="More than 5 years">more5</option>
+	<input type="select" required="true" key="rep_bugs">
+		<label>Please rate your expertise with bugs reporting.</label>
+		<option name="Very poor">vpoor</option>
+		<option name="Poor">poor</option>
+		<option name="Fair">fair</option>
+		<option name="High">high</option>
+		<option name="Very high">vhigh</option>
 	</input>
 
-	<input type="select" required="true" key="rep_bug">
-		<label>How many years of experience do you have reporting bug?</label>
-		<option name="Less than one year">less1</option>
-		<option name="Between 1 and 3 years">bet13</option>
-		<option name="Between 3 and 5 years">bet35</option>
-		<option name="More than 5 years">more5</option>
+	<input type="select" required="true" key="fix_bugs">
+		<label>Please rate your expertise with bug fixing.</label>
+		<option name="Very poor">vpoor</option>
+		<option name="Poor">poor</option>
+		<option name="Fair">fair</option>
+		<option name="High">high</option>
+		<option name="Very high">vhigh</option>
 	</input>
 
-		<input type="select" required="true" key="fix_bug">
-		<label>How many years of experience do you have fixing bugs?</label>
-		<option name="Less than one year">less1</option>
-		<option name="Between 1 and 3 years">bet13</option>
-		<option name="Between 3 and 5 years">bet35</option>
-		<option name="More than 5 years">more5</option>
+	<input type="select" required="true" key="tests">
+		<label>Please rate your expertise with tests.</label>
+		<option name="Very poor">vpoor</option>
+		<option name="Poor">poor</option>
+		<option name="Fair">fair</option>
+		<option name="High">high</option>
+		<option name="Very high">vhigh</option>
 	</input>
 
-	<input type="input" required="false" maxlength="40" key="input_rev">
-		<label>During a code review did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?</label>
+	<input type="textarea" required="false" key="input_perceive">
+		<label>During a software development did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?</label>
 	</input>
 
-	<input type="input" required="false" maxlength="40" key="input_tool">
-		<label>Have you ever used any tool to identify bugs? What type of tools?</label>
+	<input type="input" required="false" key="input_buggy">
+		<label>Could you provide the address of this buggy code?</label>
+	</input>
+
+	<input type="input" required="false" key="input_open">
+		<label> Have you ever contributed for open source projects? If yes, could you provide the addresses of these projects?</label>
+	</input>
+
+	<input type="input" required="false" key="email">
+		<label>Please enter your e-mail (it will not be disclosed), if you want to participate on the raffle of US$ 100 voucher at Amazon.com or want be contacted in future researches.</label>
 	</input>
 
 	<input type="textarea" required="false" key="comments">
-		<label>Comments</label>
+		<label>Do you have any comments regarding this research?</label>
 	</input>
 
 </item>

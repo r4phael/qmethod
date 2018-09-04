@@ -2,27 +2,32 @@
 <pages>
 	<div>
 		<center><h2><b>ABOUT THIS RESEARCH</b></h2></center>
-		
 		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:50px;">
-		This research is being conducted by Jairo Souza, Rodrigo, Baldoino, Marcio, Bruno, Gustavo e Rohit.<br/><br/>
+		This research is being conducted by
+		<ul style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px;">
+  			<li>Jairo Souza (Msc Student); </li>
+  			<li>Rodrigo Lima (Msc Student); </li>
+  			<li>Baldoino Fonseca (PhD); </li>
+			<li>Márcio Ribeiro (PhD);</li>
+			<li>Bruno Cartaxo (PhD); </li>
+			<li>Gustavo Pinto (PhD); </li>
+			<li>Rohit Ghey (PhD);</li>
+			<li>Alessandro Garcia (PhD);</li>
+		</ul>
+		</p>
+		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px;">
+		We are researchers at UFAL (Federal University of Alagoas), UFPE (Federal University of Pernambuco), UFPA (Federal University of Para), UFCG (Federal University of Campina Grande), and Puc-RIO (Pontifícia Universidade Católica do Rio de Janeiro) studying the information needs to identify bug-introducing changes. During the process of development and evolution of software, inevitably, developers perform changes, and these changes may introduce bugs, also known as bug-introducing changes.<br/><br/>
 
-		We are researchers at EASY-GROUP studying how to developers recognizing information on bug introducing changes in practice.<br/><br/>
+		The estimated time to complete the questionnaire is 20 minutes.<br/><br/>
 
-		One way to do this, Find out which information is most relevant to developers. To achieve this goal, we are are conducting this survey, and we would like to know your opinion about the main information you need to identify bug-introducing changes.<br/><br/>
+		If you have any doubt, do not hesitate to contact us in jrmcs@ic.ufal.br (Jairo Souza). <br/><br/>
 
-		The estimated time to complete the questionnaire is 45 minutes.<br/><br/>
-
-		If you have any doubt, do not hesitate to contact us in jrmcs@ic.ufal.br. <br/><br/>
-
-		<font color = "red">
 		<b>ON THE BENEFITS TO DE RESPONDENTS</b><br/>
 		1. By filling this research instrument, you can participate in a Raffle of US$ 100 voucher at Amazon.com<br/><br/>
 		
 		2. The raffle will occur only if more than one third of the invited researchers fill this research instrument.<br/><br/>
 		
-		3. For each respondent of this research instrument, R$ 1 will be donated (limited to a maximum of R$ 200) to the Center for Support Children with Cancer (Núcleo de Apoio a Criança com Câncer - NACC), which is a Brazilian NGO with more than 30 years of existence. More information about NACC, you can find in its official website http://www.nacc.org.br (portuguse only).<br/><br/>
-
-		</font>	
+		3. For each respondent of this research instrument, R$ 1 will be donated (limited to a maximum of R$ 200) to the Poorhouse (Casa do Pobre), which is a Brazilian NGO with more than 80 years of existence. More information about Poorhouse, you can find in its website http://casadopobre.blogspot.com/ (portuguse only).<br/><br/>
 		
 		<b>STATEMENT OF INFORMED CONSENT</b><br/>
 		By filling this research instrument, you agree to permit the researcher to obtain, use and disclose the anonymous information provided as described below.<br/><br/>
@@ -34,41 +39,6 @@
 
 		3. I understand that I can contact the researcher if I have any questions about this research. I am aware that my consent will not directly benefit me. I am also aware that the author will maintain the data collected in perpetuity and may utilize data for future academic work.<br/><br/>
 		</p>
-	</div>
-	
-	<div>
-		<center><h2><b>ABOUT  REVIEWS</b></h2></center><br/>
-	
-		<b><center>PLEASE READ THIS BOX ENTIRELY, IT IS CRUCIAL TO THE NEXT STEPS</center></b><br/><br/>
-		
-		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px;">
-		
-	
-		This study is about the perceptions and attitudes of developers to recognize information that helps to identify changes that introduce bugs during software development.<br/><br/>
-		
-		<b>WHAT IS A BUG INTRODUCING CHANGE?</b><br/>
-
-		During the process of development and evolution of software, inevitably, developers perform changes. These changes may introduce bugs, also known as bug-introducing changes[1].<br/><br/>
-		
-		Identifying which information is more relevant to detect bug-introducing changes may support developers and code reviewers during the process of bugs inspection.<br/><br/>
-		
-		The figure below helps to understand this context. It shows the entire process of a software development that contains bug-introducing changes. In this example, the developer introduces a bug, but it is not identified in the discussion and process review phase. Therefore the bug-introducing changes are merged in the main branch of software, which will be made available soon to clients.<br/>
-
-		</p>
-
-		<center><img src="https://i.imgur.com/JbHmVjt.jpg" width="80%"/></center>
-
-		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px;">
-		
-		The identification of bugs during the software development helps to reduce the costs and efforts. Several studies [2,3,4] shows that is important to identify and fix bugs early in the software development to save time, efforts, and money. A real-world example of Identifying a bug after the development phase is the Samsung Note 7 fiasco that costs around 17 billion to the company [3].There was speculation that one of the problems the Note 7 phones was related to a bug in their battery management system that could lead the battery to overcharge, become unstable, and eventually explode.<br/><br/>
-
-		<b>REFERENCES</b><br/>
-		[1] J. ́Sliwerski, T. Zimmermann, and A. Zeller, “When do changes inducefixes?”SIGSOFT Softw. Eng. Notes, vol. 30, no. 4, pp. 1–5, May 2005.<br/>
-		[2]<br/>
-		[4] S.Y.Lee, “Note7 fiasco could burn a $17 billion hole in samsung accounts,”Oct2016.[On-line].Available:https://www.reuters.com/article/us-samsung-elec-smartphones-costs-idUSKCN12B0FX<br/>
-
-		</p>
-		
 	</div>
 </pages>
 	
