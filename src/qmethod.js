@@ -235,6 +235,7 @@ app.config(function ($stateProvider, $locationProvider) {
 
 	$locationProvider.hashPrefix('');
 
+	/*
 	$stateProvider.state({
 		name: 'step1',
 		url: '/step1',
@@ -248,6 +249,14 @@ app.config(function ($stateProvider, $locationProvider) {
 				return $http.get('settings/startingPages.xml');
 			}]
 		}
+	});
+	*/
+
+	$stateProvider.state({
+		name: 'step1',
+		url: '/step1',
+		templateUrl: 'templates/survey.html',
+		controller: 'step1Ctrl'
 	});
 
 	$stateProvider.state({
