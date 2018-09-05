@@ -26,6 +26,12 @@
 		<option name="Other">other</option>
 	</input>
 
+	<!-- 
+	<input type="input" maxlength="40" key="ocu_other", hideExpression = "model.geo != \"other\"">
+		<label>Specify</label>
+	</input>
+	<!-->
+
 	<input type="select" required="true" key="leve_exp">
 		<label>Please rate your expertise with software development.</label>
 		<option name="Very poor">vpoor</option>

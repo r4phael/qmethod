@@ -319,7 +319,261 @@ app.controller("appCtrl", function ($scope, $rootScope, $state) {
 app.controller("step1Ctrl",['promisedata','startingPages',
 		'$scope','$rootScope','$state','$sce',function
 	   	(promisedata,startingPages,$scope,$rootScope,$state,$sce) {
-	$rootScope.formFields = xml2form(promisedata.data);
+	
+	//$rootScope.formFields = xml2form(promisedata.data);
+	
+	$rootScope.formFields = [
+			{
+			  "key": "geo",
+			  "type": "input",
+			  "templateOptions": {
+				"label": "Please enter the country you currently work on.",
+				"maxlength" : "40",
+				"required" : true
+			  }
+			},
+			{
+			  "key": "edu",
+			  "type": "radio",
+			  "templateOptions": {
+				"label": "Please select your educational level.",
+				"required": true,
+				"options": [
+				  {
+					"name": "PhD",
+					"value": "phd"
+				  },
+				  {
+					"name": "PhD Student",
+					"value": "phdstu"
+				  },
+				  {
+					"name": "Master",
+					"value": "msc"
+				  },
+				  {
+					"name": "Master Student",
+					"value": "mscstu"
+				  },
+				  {
+					"name": "Undergraduate",
+					"value": "und"
+				  },
+				  {
+					"name": "Undergraduate Student",
+					"value": "undstud"
+				  },
+				  {
+					"name": "Other",
+					"value": "other"
+				  }
+				]
+			  }
+			},
+			{
+			  "key": "edu_other",
+			  "type": "input",
+			  "templateOptions": {
+				  "label": "Please, specify here",
+				  "maxlength" : "40",
+				  "required": true
+				},
+			  "hideExpression" : "model.edu != \"other\""
+			},
+			{
+				"key": 'occupation',
+				"type": 'multiCheckbox',
+				"templateOptions": {
+				  "label": 'What is your current job? (You can select multiple options)',
+				  "options": [{"id": "opedev", "title" : "Open-Source Developer"}, 
+								{"id": "inddev", "title" : "Academic Researcher"},
+								{"id": "acares", "title" : "Industrial Developer"},
+								{"id": "indres", "title" : "Industrial Researcher"},
+								{"id": "other", "title" : "Other"}],							
+				  "valueProp": 'id',
+				  "labelProp": 'title'
+				}
+			},
+			{
+				"key": "ocu_other",
+				"type": "input",
+				"templateOptions": {
+					"label": "Please, specify here",
+					"maxlength" : "40",
+					"required": true
+				  },
+				"hideExpression" : "model.occupation != \"other\""
+			},
+			{
+				"key": "leve_exp",
+				"type": "select",
+				"templateOptions": {
+				  "label": "Please rate your expertise with software development.",
+				  "required": true,
+				  "valueProp": "name",
+				  "options": [
+					{
+					  "name": "Very poor"
+					},
+					{
+					  "name": "Poor"
+					},
+					{
+					  "name": "Fair"
+					},
+					{
+					  "name": "High"
+					},
+					{
+					  "name": "Very high"
+					}
+				  ]
+				}
+			},
+			{
+				"key": "code_review",
+				"type": "select",
+				"templateOptions": {
+				  "label": "Please rate your expertise with code review.",
+				  "required": true,
+				  "valueProp": "name",
+				  "options": [
+					{
+					  "name": "Very poor"
+					},
+					{
+					  "name": "Poor"
+					},
+					{
+					  "name": "Fair"
+					},
+					{
+					  "name": "High"
+					},
+					{
+					  "name": "Very high"
+					}
+				  ]
+				}
+			},
+			{
+				"key": "rep_bugs",
+				"type": "select",
+				"templateOptions": {
+				  "label": "Please rate your expertise with bugs reporting.",
+				  "required": true,
+				  "valueProp": "name",
+				  "options": [
+					{
+					  "name": "Very poor"
+					},
+					{
+					  "name": "Poor"
+					},
+					{
+					  "name": "Fair"
+					},
+					{
+					  "name": "High"
+					},
+					{
+					  "name": "Very high"
+					}
+				  ]
+				}
+			},
+			{
+				"key": "fix_bugs",
+				"type": "select",
+				"templateOptions": {
+				  "label": "Please rate your expertise with bug fixing.",
+				  "required": true,
+				  "valueProp": "name",
+				  "options": [
+					{
+					  "name": "Very poor"
+					},
+					{
+					  "name": "Poor"
+					},
+					{
+					  "name": "Fair"
+					},
+					{
+					  "name": "High"
+					},
+					{
+					  "name": "Very high"
+					}
+				  ]
+				}
+			},
+			{
+				"key": "tests",
+				"type": "select",
+				"templateOptions": {
+				  "label": "Please rate your expertise with tests.",
+				  "required": true,
+				  "valueProp": "name",
+				  "options": [
+					{
+					  "name": "Very poor"
+					},
+					{
+					  "name": "Poor"
+					},
+					{
+					  "name": "Fair"
+					},
+					{
+					  "name": "High"
+					},
+					{
+					  "name": "Very high"
+					}
+				  ]
+				}
+			},
+			{
+			  "type": "textarea",
+			  "key": "input_perceive",
+			  "templateOptions": {
+			  "label": "During a software development did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?"
+			  }
+			},
+			{
+				"key": "input_buggy",
+				"type": "input",
+				"templateOptions": {
+					"label": "Could you provide the address of this buggy code?"
+				  },
+				  "expressionProperties": {
+					'templateOptions.disabled': '!model.input_perceive'
+				  }
+			},
+			{
+				"key": "input_open",
+				"type": "input",
+				"templateOptions": {
+					"label": "Have you ever contributed for open source projects? If yes, could you provide the addresses of these projects?"
+				  }
+			},
+			{
+				"key": "email",
+				"type": "input",
+				"templateOptions": {
+					"label": "Please enter your e-mail (it will not be disclosed), if you want to participate on the raffle of US$ 100 voucher at Amazon.com or want be contacted in future researches."
+				  }
+			},
+			{
+				"type": "textarea",
+				"key": "comments",
+				"templateOptions": {
+				"label": "Do you have any comments regarding this research?"
+				}
+			}
+		  ];
+	
 	$scope.currentPageIndex = 0;
 	$scope.pageData = xml2html(startingPages.data);
 	$scope.debugging = angular.copy(debugging);
