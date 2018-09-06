@@ -4,71 +4,65 @@
         <fieldset>
         
         <!-- Form Name -->
+         <!--
         <legend>Survey</legend>
+         -->     
 
-      
-          <input type='hidden' value='0' name='selfdestruct'>
-          <input type='checkbox' value='1' name='selfdestruct'>
-             
         <!-- Text input-->
         <div class="row">
         <label class="col-md-12">Please enter the country you currently work on.</label>
         </div>
         <div class="form-group">
           <div class="col-md-4">
-            <input id="country" ng-model="user.country" type="text" class="form-control input-md">
+            <input id="country" ng-model="user.country" type="text" class="form-control input-md" required>
           </div>
         </div>
 
            
         <!-- Multiple Radios (inline) -->
         <div class="row">
-            <label class="col-md-12">Please select your educational level.</label>
+            <label class="col-md-12" >Please select your educational level.</label>
         </div>
         <div class="form-group">
               <div class="col-md-4"> 
               <label class="radio">
-                <input type="radio" ng-model="user.edu" value="phd" required>
-                PhD
+                <input type="radio" id= "radio-1" ng-model="user.edu" value="phd" onclick="javascript:otherCheck();" required>
+                <label>PhD</label>
               </label> 
               <label class="radio">
-                <input type="radio" ng-model="user.edu" value="phdstu">
-                PhD Student
+                <input type="radio" id= "radio-2" ng-model="user.edu" value="phdstu" onclick="javascript:otherCheck();">
+                <label>PhD Student</label>
               </label> 
               <label class="radio">
-                <input type="radio" ng-model="user.edu" value="msc">
-                Master
-              </label> 
+                <input type="radio" id= "radio-3" ng-model="user.edu" value="msc" onclick="javascript:otherCheck();">
+                <label>Master</label> 
+             </label> 
               <label class="radio">
-                <input type="radio" ng-model="user.edu" value="mscstu">
-                Master Student
+                <input type="radio" id= "radio-4" ng-model="user.edu" value="mscstu" onclick="javascript:otherCheck();">
+                <label>Master Student</label>
               </label>
               <label class="radio">
-                  <input type="radio" ng-model="user.edu" value="under">
-                Undergraduate
+                  <input type="radio" id= "radio-5" ng-model="user.edu" value="under" onclick="javascript:otherCheck();">
+                <label>Undergraduate</label>
               </label>
               <label class="radio">
-                 <input type="radio" ng-model="user.edu" value="understu">
-                Undergraduate Student
+                 <input type="radio" id= "radio-6" ng-model="user.edu" value="understu" onclick="javascript:otherCheck();">
+                 <label>Undergraduate Student</label>
               </label>
               <label class="radio">
-                <input type="radio" ng-model="user.edu" value="other">
-                 Other
+                <input type="radio" id= "radio-7" ng-model="user.edu" value="other" onclick="javascript:otherCheck();">
+                <label>Other</label>
                </label>
             </div>
           </div>
 
-           <!-- Text input-->
-        <div class="row">
-            <label class="col-md-12">Please, specify here</label>
-          </div>
-            <div class="form-group">
-              <div class="col-md-4">
-                <input id="edu" ng-model="user.edu_other_spec" type="text" class="form-control input-md">
-              </div>
+        <div class="form-group" id="ifOther" style="display:none">
+            <div class="col-md-4">
+            <input id="edu" ng-model="user.edu_other_spec" type="text" class="form-control input-md">
+            <span class="help-block">Please, specify here</span>  
             </div>
-        
-        
+        </div>
+                
         <!-- Multiple Checkboxes -->
         <div class="row">
           <label class="col-md-12" for="checkboxes">Please select your educational level.</label>
@@ -76,23 +70,23 @@
         <div class="form-group">
           <div class="col-md-4">
             <div class="checkbox">
-                <input type="checkbox" ng-model="user.ocu_open" value="1">
+                <input type="checkbox" id="check-1" ng-model="user.ocu_open" value="1" required>
                 Open Source Developer
             </div>
             <div class="checkbox">
-                <input type="checkbox" ng-model="user.ocu_aca_res" value="2">
+                <input type="checkbox" id="check-2" ng-model="user.ocu_aca_res" value="2">
                 Academic Researcher
             </div>
             <div class="checkbox">
-                  <input type="checkbox" ng-model="user.ocu_ind_dev" value="2">
+                  <input type="checkbox" id="check-3" ng-model="user.ocu_ind_dev" value="2">
                   Industrial Developer
             </div>
             <div class="checkbox">
-                  <input type="checkbox" ng-model="user.ocu_ind_res" value="2">
+                  <input type="checkbox" id="check-4" ng-model="user.ocu_ind_res" value="2">
                   Industrial Researcher
             </div>  
             <div class="checkbox">
-                  <input type="checkbox" ng-model="user.ocu_other" value="2">
+                  <input type="checkbox" id="check-5" ng-model="user.ocu_other" value="2" onclick="javascript:otherCheck2();">
                   Other
                 </label>
             </div>
@@ -100,21 +94,19 @@
         </div>
 
         <!-- Text input-->
-        <div class="row">
-          <label class="col-md-12">Please, specify here</label>
-        </div>
-          <div class="form-group">
+        <div class="form-group" id="ifOther2" style="display:none">
             <div class="col-md-4">
-              <input id="edu" ng-model="user.ocu_other_spec" type="text" class="form-control input-md">
+            <input id="edu" ng-model="user.ocu_other_spec" type="text" class="form-control input-md">
+            <span class="help-block">Please, specify here</span>  
             </div>
-          </div>
+        </div>
 
           <div class="row">
                  <label class="col-md-12">Please rate your expertise with</label>
           </div>
           
           <div  class='form-group'>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <table class="table table-striped">
                   <tr>
                     <th></th>
@@ -126,81 +118,47 @@
                   </tr>
                   <tr>
                     <td>Software Development</td>
-                    <td> <input type="radio" ng-model="user.software_exp" value="verypoor" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.software_exp" value="poor" checked /> </td>
-                    <td> <input type="radio" ng-model="user.software_exp" value="fair" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.software_exp" value="high" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.software_exp" value="veryhigh" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="verypoor" checked required/> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="poor" checked /> </td>
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="fair" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="high" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="veryhigh" checked /> </td> 
                   </tr>
                   <tr>
                     <td>Code Review</td>
-                    <td> <input type="radio" ng-model="user.cod_review" value="verypoor" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.cod_review" value="poor" checked /> </td>
-                    <td> <input type="radio" ng-model="user.cod_review" value="fair" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.cod_review" value="high" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.cod_review" value="veryhigh" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="verypoor" checked required /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="poor" checked /> </td>
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="fair" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="high" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="veryhigh" checked /> </td> 
                   </tr>
                   <tr>
                     <td>Bug Reporting</td>
-                    <td> <input type="radio" ng-model="user.bug_rep" value="verypoor" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.bug_rep" value="poor" checked /> </td>
-                    <td> <input type="radio" ng-model="user.bug_rep" value="fair" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.bug_rep" value="high" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.bug_rep" value="veryhigh" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="verypoor" checked required /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="poor" checked /> </td>
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="fair" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="high" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="veryhigh" checked /> </td> 
                   </tr>
                   <tr>
                     <td>Bug Fixing</td>
-                    <td> <input type="radio" ng-model="user.bug_fix" value="verypoor" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.bug_fix" value="poor" checked /> </td>
-                    <td> <input type="radio" ng-model="user.bug_fix" value="fair" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.bug_fix" value="high" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.bug_fix" value="veryhigh" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="verypoor" checked required /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="poor" checked /> </td>
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="fair" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="high" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="veryhigh" checked /> </td> 
                   </tr>
                   <tr>
                     <td>Tests</td>
-                    <td> <input type="radio" ng-model="user.tests" value="verypoor" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.tests" value="poor" checked /> </td>
-                    <td> <input type="radio" ng-model="user.tests" value="fair" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.tests" value="high" checked /> </td> 
-                    <td> <input type="radio" ng-model="user.tests" value="veryhigh" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="verypoor" checked required /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="poor" checked /> </td>
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="fair" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="high" checked /> </td> 
+                    <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="veryhigh" checked /> </td> 
                     </tr>
               </table>
             </div>
           </div>
-
-        <!-- Multiple Radios (inline) 
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="radios">Inline Radios</label>
-            <div class="col-md-4"> 
-              <label class="radio-inline" for="radios-0">
-                <input type="radio" ng-model="user.radios" id="radios-0" value="1" checked="checked">
-                1
-              </label> 
-              <label class="radio-inline" for="radios-1">
-                <input type="radio" ng-model="user.radios" id="radios-1" value="2">
-                2
-              </label> 
-              <label class="radio-inline" for="radios-2">
-                <input type="radio" ng-model="user.radios" id="radios-2" value="3">
-                3
-              </label> 
-              <label class="radio-inline" for="radios-3">
-                <input type="radio" ng-model="user.radios" id="radios-3" value="4">
-                4
-              </label>
-            </div>
-        </div>
-        -->
-        
-           
-        <div class="row">
-          <label class="col-md-12" >During a software development did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?</label>
-        </div>
-          <div class="form-group">
-              <div class="col-md-4">                  
-            <textarea class="form-control" ng-model="user.input_perceive">default text</textarea>
-          </div>
-        </div>
 
         <!-- Text input-->
         <div class="row">
