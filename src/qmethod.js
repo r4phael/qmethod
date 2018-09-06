@@ -974,9 +974,6 @@ app.controller("step5Ctrl", function ($scope, $rootScope, $state) {
 
 app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
 
-	console.log("step6Ctrl Enter!");
-	console.log($scope.user);
-
 		/*
 		// Get the form fields and hidden div
 		var checkbox = $("#trigger");

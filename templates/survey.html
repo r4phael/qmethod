@@ -4,9 +4,10 @@
         <fieldset>
         
         <!-- Form Name -->
-         <!--
-        <legend>Survey</legend>
-         -->     
+        <div class="col-md-6"> 
+        <legend style="text-align: center;">Characterization Questionnaire</legend>
+        </div>
+         
 
         <!-- Text input-->
         <div class="row">
@@ -165,7 +166,7 @@
             <label class="col-md-12">Could you provide the address of this buggy code?</label>
           </div>
             <div class="form-group">
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <input ng-model="user.input_buggy" type="text" class="form-control input-md">
               </div>
             </div>
@@ -174,7 +175,7 @@
             <label class="col-md-12">Have you ever contributed for open source projects? If yes, could you provide the addresses of these projects?</label>
           </div>
             <div class="form-group">
-                <div class="col-md-4">                  
+                <div class="col-md-6">                  
               <textarea class="form-control" ng-model="user.input_open">default text</textarea>
             </div>
           </div>
@@ -184,7 +185,7 @@
                   want be contacted in future researches.</label>
             </div>
               <div class="form-group">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <input ng-model="user.email" type="text" class="form-control input-md">
                 </div>
             </div>
@@ -193,7 +194,7 @@
                 <label class="col-md-12">Do you have any comments regarding this research?</label>
               </div>
                 <div class="form-group">
-                    <div class="col-md-4">                  
+                    <div class="col-md-6">                  
                   <textarea class="form-control" ng-model="user.comments">default text</textarea>
                 </div>
               </div>
@@ -206,5 +207,7 @@
         
         </fieldset>
         </form>
+        <!--
         <pre>form = {{user | json}}</pre>
+        -->
 </div>

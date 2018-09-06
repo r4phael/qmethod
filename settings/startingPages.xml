@@ -2,9 +2,9 @@
 <pages>
 	<div>
 		<center><h2><b>ABOUT THIS RESEARCH</b></h2></center>
-		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:50px;">
-		This research is being conducted by
-		<ul style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px;">
+		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:50px; text-align: justify;">
+		This research is being conducted by:
+		<ul style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px; text-align: justify;">
   			<li>Jairo Souza (Msc Student); </li>
   			<li>Rodrigo Lima (Msc Student); </li>
   			<li>Baldoino Fonseca (PhD); </li>
@@ -15,8 +15,10 @@
 			<li>Alessandro Garcia (PhD);</li>
 		</ul>
 		</p>
-		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px;">
-		We are researchers at UFAL (Federal University of Alagoas), UFPE (Federal University of Pernambuco), UFPA (Federal University of Para), UFCG (Federal University of Campina Grande), and Puc-RIO (Pontifícia Universidade Católica do Rio de Janeiro) studying the information needs to identify bug-introducing changes. During the process of development and evolution of software, inevitably, developers perform changes, and these changes may introduce bugs, also known as bug-introducing changes.<br/><br/>
+		<p style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:0px; text-align: justify;">
+		We are researchers at UFAL (Federal University of Alagoas), UFPE (Federal University of Pernambuco), UFPA (Federal University of Pará), UFCG (Federal University of Campina Grande), and Puc-RIO (Pontifícia Universidade Católica do Rio de Janeiro) studying the information needs to identify <b>bug-introducing changes.</b> During the process of development and evolution of software, inevitably, developers perform changes, and these changes may introduce bugs, also known as <b>bug-introducing changes[1].</b><br/><br/>
+
+		[1] J. ́Sliwerski, T. Zimmermann, and A. Zeller, “When do changes induce fixes?” SIGSOFT Softw. Eng. Notes, vol. 30, no. 4, pp. 1–5, May 2005.[Online]. Available: http://doi.acm.org/10.1145/1082983.1083147
 
 		The estimated time to complete the questionnaire is 20 minutes.<br/><br/>
 

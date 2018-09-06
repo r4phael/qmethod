@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <statements>
 	<statement id="1">Understanding the rationale behind changes is mandatory to avoid the bugs introduction. </statement>
-	<!-- 
 	<statement id="2">Changes that neglect non-functional requirements are more likely to introduce bugs.</statement>
 	<statement id="3">Having documentation associated with source code is decisive for developers to avoid bug-introducing changes on it.</statement>
+	<!-- 
 	<statement id="4">Familiarity of developers with source code is mandatory to avoid bug-introducing changes.</statement>
 	<statement id="5">Changes involving a large number of files are more likely to introduce bugs.</statement>
 	<statement id="6">When reviewing a change, reviewers need to be aware of all artifacts impacted by this change to avoid the introduction of bugs. </statement>
