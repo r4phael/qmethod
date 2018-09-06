@@ -1,6 +1,6 @@
 <div ng-controller="step6Ctrl as vm" style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:50px;">
 
-<form class="form-horizontal" name="inputForm" form = "">
+<form class="form-horizontal" name="inputForm" form = "inputForm">
         <fieldset>
         
         <!-- Form Name -->
@@ -10,6 +10,7 @@
          
 
         <!-- Text input-->
+        <!--
         <div class="row">
         <label class="col-md-12">Please enter the country you currently work on.</label>
         </div>
@@ -18,40 +19,41 @@
             <input id="country" ng-model="user.country" type="text" class="form-control input-md" required>
           </div>
         </div>
-
+        -->
            
         <!-- Multiple Radios (inline) -->
+        <!--
         <div class="row">
             <label class="col-md-12" >Please select your educational level.</label>
         </div>
         <div class="form-group">
               <div class="col-md-4"> 
               <label class="radio">
-                <input type="radio" id= "radio-1" ng-model="user.edu" value="phd" onclick="javascript:otherCheck();" required>
+                <input type="radio" id= "radio1" ng-model="user.edu" value="phd" onclick="javascript:otherCheck();" required>
                 <label>PhD</label>
               </label> 
               <label class="radio">
-                <input type="radio" id= "radio-2" ng-model="user.edu" value="phdstu" onclick="javascript:otherCheck();">
+                <input type="radio" id= "radio2" ng-model="user.edu" value="phdstu" onclick="javascript:otherCheck();">
                 <label>PhD Student</label>
               </label> 
               <label class="radio">
-                <input type="radio" id= "radio-3" ng-model="user.edu" value="msc" onclick="javascript:otherCheck();">
+                <input type="radio" id= "radio3" ng-model="user.edu" value="msc" onclick="javascript:otherCheck();">
                 <label>Master</label> 
              </label> 
               <label class="radio">
-                <input type="radio" id= "radio-4" ng-model="user.edu" value="mscstu" onclick="javascript:otherCheck();">
+                <input type="radio" id= "radio4" ng-model="user.edu" value="mscstu" onclick="javascript:otherCheck();">
                 <label>Master Student</label>
               </label>
               <label class="radio">
-                  <input type="radio" id= "radio-5" ng-model="user.edu" value="under" onclick="javascript:otherCheck();">
+                  <input type="radio" id= "radio5" ng-model="user.edu" value="under" onclick="javascript:otherCheck();">
                 <label>Undergraduate</label>
               </label>
               <label class="radio">
-                 <input type="radio" id= "radio-6" ng-model="user.edu" value="understu" onclick="javascript:otherCheck();">
+                 <input type="radio" id= "radio6" ng-model="user.edu" value="understu" onclick="javascript:otherCheck();">
                  <label>Undergraduate Student</label>
               </label>
               <label class="radio">
-                <input type="radio" id= "radio-7" ng-model="user.edu" value="other" onclick="javascript:otherCheck();">
+                <input type="radio" id= "radio7" ng-model="user.edu" value="other" onclick="javascript:otherCheck();">
                 <label>Other</label>
                </label>
             </div>
@@ -63,36 +65,38 @@
             <span class="help-block">Please, specify here</span>  
             </div>
         </div>
+        -->
                 
         <!-- Multiple Checkboxes -->
         <div class="row">
-          <label class="col-md-12" for="checkboxes">Please select your educational level.</label>
+          <label class="col-md-12">Please select your educational level.</label>
         </div>
-        <div class="form-group">
-          <div class="col-md-4">
-            <div class="checkbox">
-                <input type="checkbox" id="check-1" ng-model="user.ocu_open" value="1" required>
+        <div class="form-group options">
+          <div class="col-md-4 checkboxes">
+            <div>
+                <input type="checkbox" name="check1" id="check1" ng-model="user.ocu_open" value="1" required>
                 Open Source Developer
             </div>
-            <div class="checkbox">
-                <input type="checkbox" id="check-2" ng-model="user.ocu_aca_res" value="2">
+            <div>
+                <input type="checkbox" name="check2" id="check2" ng-model="user.ocu_aca_res" value="2" required>
                 Academic Researcher
             </div>
-            <div class="checkbox">
-                  <input type="checkbox" id="check-3" ng-model="user.ocu_ind_dev" value="2">
+            <div>
+                  <input type="checkbox" name="check3" id="check3" ng-model="user.ocu_ind_dev" value="3"required>
                   Industrial Developer
             </div>
-            <div class="checkbox">
-                  <input type="checkbox" id="check-4" ng-model="user.ocu_ind_res" value="2">
+            <div>
+                  <input type="checkbox" name="check4" id="check4" ng-model="user.ocu_ind_res" value="4" required>
                   Industrial Researcher
             </div>  
-            <div class="checkbox">
-                  <input type="checkbox" id="check-5" ng-model="user.ocu_other" value="2" onclick="javascript:otherCheck2();">
+            <div>
+                  <input type="checkbox" name="check5" id="check5" ng-model="user.ocu_other" value="5" onclick="javascript:otherCheck2();" required>
                   Other
                 </label>
             </div>
           </div>
         </div>
+        
 
         <!-- Text input-->
         <div class="form-group" id="ifOther2" style="display:none">
@@ -102,7 +106,8 @@
             </div>
         </div>
 
-          <div class="row">
+        <!--  
+        <div class="row">
                  <label class="col-md-12">Please rate your expertise with</label>
           </div>
           
@@ -160,6 +165,7 @@
               </table>
             </div>
           </div>
+        -->
 
         <!-- Text input-->
         <div class="row">
@@ -207,7 +213,6 @@
         
         </fieldset>
         </form>
-        <!--
+    
         <pre>form = {{user | json}}</pre>
-        -->
 </div>

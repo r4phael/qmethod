@@ -1,6 +1,5 @@
 function otherCheck() {
-    console.log("Inside otherCheck");
-    if (document.getElementById('radio-7').checked) {
+    if (document.getElementById('radio7').checked) {
         document.getElementById('ifOther').style.display = 'block';
     }
     else {
@@ -10,8 +9,7 @@ function otherCheck() {
 }
 
 function otherCheck2() {
-    console.log("Inside otherCheck2");
-    if (document.getElementById('check-5').checked) {
+    if (document.getElementById('check5').checked) {
         document.getElementById('ifOther2').style.display = 'block';
     }
     else {
@@ -19,5 +17,27 @@ function otherCheck2() {
     } 
 
 }
+
+$(document).ready(function() {
+
+    var requiredCheckboxes = $('div#checkboxes input[type=checkbox]');
+
+    console.log("checkbox:");
+    console.log(requiredCheckboxes);
+
+    requiredCheckboxes.change(function(){
+
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+            console.log("if");
+        }
+
+        else {
+            requiredCheckboxes.attr('required', 'required');
+            console.log("else");
+        }
+    });
+
+});
     
   
