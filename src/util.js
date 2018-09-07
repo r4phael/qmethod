@@ -9,7 +9,7 @@ function otherCheck() {
 }
 
 function otherCheck2() {
-    if (document.getElementById('check5').checked) {
+    if (document.getElementById('checkOther').checked) {
         document.getElementById('ifOther2').style.display = 'block';
     }
     else {
@@ -18,26 +18,17 @@ function otherCheck2() {
 
 }
 
-$(document).ready(function() {
+function inputCheck() {
+   
+   var nameInput = document.getElementById('text_buggy').value;
+   if (!nameInput == "") {
+        document.getElementById('input_buggy').style.display = 'block';
+    }
+    else {
+        document.getElementById('input_buggy').style.display = 'none';
+    } 
 
-    var requiredCheckboxes = $('div#checkboxes input[type=checkbox]');
+}
 
-    console.log("checkbox:");
-    console.log(requiredCheckboxes);
-
-    requiredCheckboxes.change(function(){
-
-        if(requiredCheckboxes.is(':checked')) {
-            requiredCheckboxes.removeAttr('required');
-            console.log("if");
-        }
-
-        else {
-            requiredCheckboxes.attr('required', 'required');
-            console.log("else");
-        }
-    });
-
-});
     
   

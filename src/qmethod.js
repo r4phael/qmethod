@@ -980,6 +980,26 @@ app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, 
 	vm.userForm = $scope.userForm;
 	vm.userFields = $rootScope.formFields;
 	$scope.debugging = angular.copy(debugging);
+
+			
+	$scope.user = {};
+	
+	$scope.user.selectedJobs = {};
+	
+	$scope.jobs = [{'name':'Open Source Developer', 'id':1}, {'name':'Academic Researcher', 'id':2}, {'name':'Industrial Developer', 'id':3}, 
+								 {'name':'Industrial Researcher', 'id':4}, {'name':'Other', 'id':5}];
+	
+	$scope.someSelected = function (object) {
+		return Object.keys(object).some(function (key) {
+			return object[key];
+		});
+	}
+	
+	$scope.submitForm = function() {
+			console.log($scope.inputForm.selectedJobs);
+	}
+	
+
 	
 	$scope.submit = function() {
 		$scope.send();
