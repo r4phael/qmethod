@@ -3,7 +3,6 @@
 	<statement id="1">Understanding the rationale behind changes is mandatory to avoid the bugs introduction. </statement>
 	<statement id="2">Changes that neglect non-functional requirements are more likely to introduce bugs.</statement>
 	<statement id="3">Having documentation associated with source code is decisive for developers to avoid bug-introducing changes on it.</statement>
-	<!-- 
 	<statement id="4">Familiarity of developers with source code is mandatory to avoid bug-introducing changes.</statement>
 	<statement id="5">Changes involving a large number of files are more likely to introduce bugs.</statement>
 	<statement id="6">When reviewing a change, reviewers need to be aware of all artifacts impacted by this change to avoid the introduction of bugs. </statement>
@@ -42,5 +41,4 @@
 	<statement id="39">Developer's specific experience in the project is more decisive to avoid the introduction of bugs than overall general experience in programming.</statement>
 	<statement id="40">Code written in a language with static typing (e.g., C#) introduces fewer bugs than code written in a language with dynamic typing (e.g., Python).</statement>
 	<statement id="41">Code snippet changed by different developers is hotspot of bugs.</statement>
-	<!-->
 </statements>
