@@ -30,5 +30,12 @@ function inputCheck() {
 
 }
 
+function testModal(){
+    console.log('Test testModal!');
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+      })
+}
+
     
   

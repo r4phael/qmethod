@@ -255,14 +255,16 @@ app.config(function ($stateProvider, $locationProvider) {
 	$stateProvider.state({
 		name: 'step1',
 		url: '/step1',
-		templateUrl: 'templates/step1.html',
-		controller: 'step1Ctrl',
+		templateUrl: 'templates/survey.html',
+		controller: 'step6Ctrl',
+		/*
 		resolve: {
 			'startingPages': ['$http', function($http){
 				return $http.get('settings/startingPages.xml');
 			}]
-		}
+		}*/
 	});
+
 
 	$stateProvider.state({
 		name: 'step3',
