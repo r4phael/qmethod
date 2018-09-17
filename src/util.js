@@ -23,9 +23,15 @@ function inputCheck() {
    var nameInput = document.getElementById('text_buggy').value;
    if (!nameInput == "") {
         document.getElementById('input_buggy').style.display = 'block';
+        document.getElementById('list_buggy').style.display = 'block';
+        document.getElementById('label_buggy').style.display = 'block';
+        document.getElementById("input_buggy_2").focus();
+        
     }
     else {
         document.getElementById('input_buggy').style.display = 'none';
+        document.getElementById('list_buggy').style.display = 'none';
+        document.getElementById('label_buggy').style.display = 'none';
     } 
 
 }

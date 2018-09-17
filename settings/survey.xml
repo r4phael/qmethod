@@ -82,11 +82,11 @@
 	</input>
 
 	<input type="input" required="false" key="input_buggy">
-		<label>Could you provide the address of this buggy code?</label>
+		<label>Could you provide the links of this buggy code?</label>
 	</input>
 
 	<input type="input" required="false" key="input_open">
-		<label> Have you ever contributed for open source projects? If yes, could you provide the addresses of these projects?</label>
+		<label> Have you ever contributed for open source projects? If yes, could you provide the links of these projects?</label>
 	</input>
 
 	<input type="input" required="false" key="email">

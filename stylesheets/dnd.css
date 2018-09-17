@@ -114,6 +114,16 @@ table tr td .panel {
     border-color: #06A10E !important;
 }
 
+.panel-info>.buggy_panel_heading {
+    background-image: linear-gradient(to bottom, rgb(78, 78, 78) 0, black 100%) !important;
+    border-color: black !important;
+}
+
+#buggy {
+    background-color: white;
+    border-color: black;
+}
+
 #disagree {
     background-color: #ff6666;
     border-color: #e82a2a;

@@ -235,7 +235,8 @@ app.config(function ($stateProvider, $locationProvider) {
 
 	$locationProvider.hashPrefix('');
 
-	/*
+	
+	
 	$stateProvider.state({
 		name: 'step1',
 		url: '/step1',
@@ -250,20 +251,22 @@ app.config(function ($stateProvider, $locationProvider) {
 			}]
 		}
 	});
-	*/
+	
+	
 
+	
 	$stateProvider.state({
-		name: 'step1',
-		url: '/step1',
+		name: 'step6',
+		url: '/step6',
 		templateUrl: 'templates/survey.html',
 		controller: 'step6Ctrl',
-		/*
 		resolve: {
-			'startingPages': ['$http', function($http){
-				return $http.get('settings/startingPages.xml');
+			'promisedata': ['$http', function($http){
+				return $http.get('settings/statements.xml');
 			}]
-		}*/
+		}
 	});
+	
 
 
 	$stateProvider.state({
@@ -297,14 +300,8 @@ app.config(function ($stateProvider, $locationProvider) {
 		controller: 'step5Ctrl'
 	});
 
+	
 	/*
-	$stateProvider.state({
-		name: 'step6',
-		url: '/step6',
-		templateUrl: 'templates/step6.html',
-		controller: 'step6Ctrl'
-	});
-	*/
 
 	$stateProvider.state({
 		name: 'step6',
@@ -312,6 +309,7 @@ app.config(function ($stateProvider, $locationProvider) {
 		templateUrl: 'templates/survey.html',
 		controller: 'step6Ctrl'
 	});
+	*/
 
 	$stateProvider.state({
 		name: 'step7',
@@ -341,264 +339,12 @@ app.controller("appCtrl", function ($scope, $rootScope, $state) {
 	$state.go('step1');
 });
 
-app.controller("step1Ctrl",[/*'promisedata',*/'startingPages',
+app.controller("step1Ctrl",['promisedata','startingPages',
 		'$scope','$rootScope','$state','$sce',function
-	   	(/*promisedata,*/startingPages,$scope,$rootScope,$state,$sce) {
+	   	(promisedata,startingPages,$scope,$rootScope,$state,$sce) {
 	
-	//$rootScope.formFields = xml2form(promisedata.data);
-	
-	$rootScope.formFields = [
-			{
-			  "key": "geo",
-			  "type": "input",
-			  "templateOptions": {
-				"label": "Please enter the country you currently work on.",
-				"maxlength" : "40",
-				"required" : true
-			  }
-			},
-			{
-			  "key": "edu",
-			  "type": "radio",
-			  "templateOptions": {
-				"label": "Please select your educational level.",
-				"required": true,
-				"options": [
-				  {
-					"name": "PhD",
-					"value": "phd"
-				  },
-				  {
-					"name": "PhD Student",
-					"value": "phdstu"
-				  },
-				  {
-					"name": "Master",
-					"value": "msc"
-				  },
-				  {
-					"name": "Master Student",
-					"value": "mscstu"
-				  },
-				  {
-					"name": "Undergraduate",
-					"value": "und"
-				  },
-				  {
-					"name": "Undergraduate Student",
-					"value": "undstud"
-				  },
-				  {
-					"name": "Other",
-					"value": "other"
-				  }
-				]
-			  }
-			},
-			{
-			  "key": "edu_other",
-			  "type": "input",
-			  "templateOptions": {
-				  "label": "Please, specify here",
-				  "maxlength" : "40",
-				  "required": true
-				},
-			  "hideExpression" : "model.edu != \"other\""
-			},
-			{
-				"key": 'occupation',
-				"type": 'multiCheckbox',
-				"templateOptions": {
-				  "label": 'What is your current job? (You can select multiple options)',
-				  "options": [{"id": "opedev", "title" : "Open-Source Developer"}, 
-								{"id": "inddev", "title" : "Academic Researcher"},
-								{"id": "acares", "title" : "Industrial Developer"},
-								{"id": "indres", "title" : "Industrial Researcher"},
-								{"id": "other", "title" : "Other"}],							
-				  "valueProp": 'id',
-				  "labelProp": 'title'
-				}
-			},
-			{
-				"key": "ocu_other",
-				"type": "input",
-				"templateOptions": {
-					"label": "Please, specify here",
-					"maxlength" : "40",
-					"required": true
-				  },
-				"hideExpression" : "model.occupation != \"other\""
-			},
-			{
-				"key": "leve_exp",
-				"type": "select",
-				"templateOptions": {
-				  "label": "Please rate your expertise with software development.",
-				  "required": true,
-				  "valueProp": "name",
-				  "options": [
-					{
-					  "name": "Very poor"
-					},
-					{
-					  "name": "Poor"
-					},
-					{
-					  "name": "Fair"
-					},
-					{
-					  "name": "High"
-					},
-					{
-					  "name": "Very high"
-					}
-				  ]
-				}
-			},
-			{
-				"key": "code_review",
-				"type": "select",
-				"templateOptions": {
-				  "label": "Please rate your expertise with code review.",
-				  "required": true,
-				  "valueProp": "name",
-				  "options": [
-					{
-					  "name": "Very poor"
-					},
-					{
-					  "name": "Poor"
-					},
-					{
-					  "name": "Fair"
-					},
-					{
-					  "name": "High"
-					},
-					{
-					  "name": "Very high"
-					}
-				  ]
-				}
-			},
-			{
-				"key": "rep_bugs",
-				"type": "select",
-				"templateOptions": {
-				  "label": "Please rate your expertise with bugs reporting.",
-				  "required": true,
-				  "valueProp": "name",
-				  "options": [
-					{
-					  "name": "Very poor"
-					},
-					{
-					  "name": "Poor"
-					},
-					{
-					  "name": "Fair"
-					},
-					{
-					  "name": "High"
-					},
-					{
-					  "name": "Very high"
-					}
-				  ]
-				}
-			},
-			{
-				"key": "fix_bugs",
-				"type": "select",
-				"templateOptions": {
-				  "label": "Please rate your expertise with bug fixing.",
-				  "required": true,
-				  "valueProp": "name",
-				  "options": [
-					{
-					  "name": "Very poor"
-					},
-					{
-					  "name": "Poor"
-					},
-					{
-					  "name": "Fair"
-					},
-					{
-					  "name": "High"
-					},
-					{
-					  "name": "Very high"
-					}
-				  ]
-				}
-			},
-			{
-				"key": "tests",
-				"type": "select",
-				"templateOptions": {
-				  "label": "Please rate your expertise with tests.",
-				  "required": true,
-				  "valueProp": "name",
-				  "options": [
-					{
-					  "name": "Very poor"
-					},
-					{
-					  "name": "Poor"
-					},
-					{
-					  "name": "Fair"
-					},
-					{
-					  "name": "High"
-					},
-					{
-					  "name": "Very high"
-					}
-				  ]
-				}
-			},
-			{
-			  "type": "textarea",
-			  "key": "input_perceive",
-			  "templateOptions": {
-			  "label": "During a software development did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?"
-			  }
-			},
-			{
-				"key": "input_buggy",
-				"type": "input",
-				"templateOptions": {
-					"label": "Could you provide the address of this buggy code?"
-				  },
-				  "expressionProperties": {
-					'templateOptions.disabled': '!model.input_perceive'
-				  }
-			},
-			{
-				"key": "input_open",
-				"type": "input",
-				"templateOptions": {
-					"label": "Have you ever contributed for open source projects? If yes, could you provide the addresses of these projects?"
-				  }
-			},
-			{
-				"key": "email",
-				"type": "input",
-				"templateOptions": {
-					"label": "Please enter your e-mail (it will not be disclosed), if you want to participate on the raffle of US$ 100 voucher at Amazon.com or want be contacted in future researches."
-				  }
-			},
-			{
-				"type": "textarea",
-				"key": "comments",
-				"templateOptions": {
-				"label": "Do you have any comments regarding this research?"
-				}
-			}
-		  ];
-	
+	$rootScope.formFields = xml2form(promisedata.data);
+		
 	$scope.currentPageIndex = 0;
 	$scope.pageData = xml2html(startingPages.data);
 	$scope.debugging = angular.copy(debugging);
@@ -974,7 +720,57 @@ app.controller("step5Ctrl", function ($scope, $rootScope, $state) {
 	};
 });
 
-app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
+app.controller("step6Ctrl",['promisedata','$scope', '$rootScope', '$state', '$http', function (promisedata, $scope, $rootScope, $state, $http) {
+
+
+
+	statements_survey = [];
+	$scope.debugging = angular.copy(debugging);
+	if (typeof $rootScope.statements_survey == "undefined") {
+		parser = new DOMParser();
+		xmlDoc = parser.parseFromString(promisedata.data,"application/xml");
+		xmlDocStatementNodes = xmlDoc.getElementsByTagName("statement");
+		for (i=0; i < xmlDocStatementNodes.length; i++) {
+			el = xmlDocStatementNodes[i];
+			el_id = el.getAttribute('id');
+			el_value = el.childNodes[0].nodeValue;
+			statements_survey.push({id: el_id, statement: el_value});
+		}
+		//Pick how many statements we have so we can use it for checks
+		//$rootScope.numberOfStatements = JSON.parse(JSON.stringify(statements_survey.length));
+		shuffleArray(statements_survey);
+		$rootScope.statements_survey = JSON.parse(JSON.stringify(statements_survey));
+	}
+
+	$scope.cards = {
+		selected: null,
+		statements: $rootScope.statements_survey,
+	};
+
+	$scope.classifications = {
+		'FINAL':[]
+	};
+
+
+	$scope.hasNoCategory = function (statement) {
+		return statement.category != "undefined";
+	}
+
+	$scope.done = function () {
+		return $rootScope.statements.length == 0;
+	}
+
+	$scope.dropFinalCallback = function (index, item, external, type) {
+
+		item.category = "final";
+		$scope.classifications.FINAL.push(item);
+		return true;
+	}
+
+	//Valid Form
+	$rootScope.isLoading = function () {
+		return $http.pendingRequests.length > 0;
+	}
 
 	var vm = this;
 	vm.model = {};
@@ -1000,7 +796,6 @@ app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, 
 	$scope.submitForm = function() {
 			console.log($scope.inputForm.selectedJobs);
 	}
-	
 
 	
 	$scope.submit = function() {
@@ -1012,11 +807,13 @@ app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, 
 	}
 
 	$scope.send = function () {
+
 		var response = {
 			classifications: {
 				'AGREE':[],
 				'DISAGREE':[],
-				'NEUTRAL':[]
+				'NEUTRAL':[],
+				'FINAL':[]
 			},
 			ratings: {},
 			explanations: {agree:[],disagree:[]},
@@ -1024,7 +821,13 @@ app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, 
 		}
 		response.questionnaire = angular.copy($scope.user);
 
-		//response.questionnaire = angular.copy(vm.model);
+		//Send statments final:
+		angular.forEach($scope.classifications, function(value, key) {
+			for(let stat of $scope.classifications[key]) {
+				response.classifications[key].push(stat.id);
+			}
+		});
+
 		
 		// Send classifications statement only 
 		angular.forEach($rootScope.classifications_step3, function(value, key) {
@@ -1065,6 +868,7 @@ app.controller("step6Ctrl",['$scope', '$rootScope', '$state', function ($scope, 
 			console.log (JSON.stringify(response));
 		}
 	}
+	
 
 }]);
 

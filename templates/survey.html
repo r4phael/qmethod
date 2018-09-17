@@ -1,43 +1,104 @@
-<div ng-controller="step6Ctrl as vm" style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:50px;">
+<div style="margin-left:100px; margin-right:100px; margin-bottom:20px; margin-top:50px;">
 
   <form class="form-horizontal" name="inputForm" form = "inputForm">
     
     <fieldset>
 
-    <!-- Button trigger modal -->
+    <!-- Button trigger modal 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Launch demo modal
       </button>
 
-      <!-- Modal -->
+     <!-- Modal 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
+            
+             <div class="modal-footer">
+              
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
               <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
       </div>
+    -->
           
     <!-- Form Name -->
     <div class="col-md-6"> 
       <legend style="text-align: center;">Characterization Questionnaire</legend>
     </div>
-      
+
+    <!-- Question-->
+    <div class="row">
+        <label class="col-md-12">During a software development did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?</label>
+    </div>
+    <div class="form-group">
+      <div class="col-md-6">                  
+        <textarea id="text_buggy" name="text_buggy" class="form-control" ng-model="user.text_buggy" onchange="javascript:inputCheck();"></textarea>
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group" style="display:none" name ="input_buggy" id="input_buggy">
+      <div class="col-md-6">
+        <input ng-model="user.input_buggy" type="text" class="form-control input-md" id="input_buggy_2">
+        <span class="help-block">Could you provide the links of commits, issues or pull requests of this buggy code?</span>  
+      </div>
+    </div>
+          
+    <div class="row" style="display: none" id="label_buggy">
+        <label class="col-md-12">Is there any statement related to bug-introducing in the cases provided?</label>
+    </div>
+    <div class="step3lists" style="display:none; margin:20px" id="list_buggy" >
+        <div class="simpleDemo row" style="margin:20px ">
+          <div class="simpleDemo row step2lists">
+              <table >
+                <tr>
+                <td style="vertical-align:top">
+                <div style="width:320px;padding-right:10px;">
+                  <div class="panel panel-info" id="buggy">
+                    <div class="panel-heading buggy_panel_heading">
+                      <h3 class="panel-title" align="center">All statements</h3>
+                    </div>
+                    <ul dnd-list="cards.statements">
+                      <li ng-repeat="statement in cards.statements"
+                          dnd-draggable="statement" dnd-moved="cards.statements.splice($index, 1)"
+                          dnd-effect-allowed="move">
+                          {{ statement.statement }}
+                      </li>
+                    </ul>
+                    </div>
+                  </div>
+                  </td>
+                  <td style="vertical-align:top">
+                      <div style="width:320px;padding-right:10px;">
+                        <div class="panel panel-info" id="buggy">
+                          <div class="panel-heading buggy_panel_heading">
+                            <h3 class="panel-title" align="center">Statements related to the example</h3>
+                          </div>
+                          <ul dnd-list="classifications.FINAL" dnd-drop="dropFinalCallback(index, item, external, type)">
+                            <li ng-repeat="statement in classifications.FINAL" dnd-draggable="statement" dnd-moved="classifications.FINAL.splice($index, 1)"
+                                dnd-effect-allowed="move">
+                                {{ statement.statement }}
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+    </div>
+   
     <!-- Text input-->
     <div class="row">
-      <label class="col-md-12">Please enter the country you currently work on.</label>
+      <label class="col-md-12">Please enter the country you currently work on.*</label>
     </div>
     <div class="form-group">
       <div class="col-md-4">
@@ -48,36 +109,36 @@
     <!-- Multiple Radios (inline) -->
     
     <div class="row">
-        <label class="col-md-12" >Please select your educational level.</label>
+        <label class="col-md-12" >Please select your educational level.*</label>
     </div>
     <div class="form-group">
       <div class="col-md-4"> 
       <label class="radio">
-        <input type="radio" id= "radio1" ng-model="user.edu" value="phd" onclick="javascript:otherCheck();" required>
+        <input type="radio" id= "radio1" ng-model="user.edu" value="phd" onclick="javascript:otherCheck();" required  >
         <label>PhD</label>
       </label> 
       <label class="radio">
-        <input type="radio" id= "radio2" ng-model="user.edu" value="phdstu" onclick="javascript:otherCheck();">
+        <input type="radio" id= "radio2" ng-model="user.edu" value="phdstu" onclick="javascript:otherCheck();" >
         <label>PhD Student</label>
       </label> 
       <label class="radio">
-        <input type="radio" id= "radio3" ng-model="user.edu" value="msc" onclick="javascript:otherCheck();">
+        <input type="radio" id= "radio3" ng-model="user.edu" value="msc" onclick="javascript:otherCheck();" >
         <label>Master</label> 
       </label> 
       <label class="radio">
-        <input type="radio" id= "radio4" ng-model="user.edu" value="mscstu" onclick="javascript:otherCheck();">
+        <input type="radio" id= "radio4" ng-model="user.edu" value="mscstu" onclick="javascript:otherCheck();" >
         <label>Master Student</label>
       </label>
       <label class="radio">
-          <input type="radio" id= "radio5" ng-model="user.edu" value="under" onclick="javascript:otherCheck();">
+          <input type="radio" id= "radio5" ng-model="user.edu" value="under" onclick="javascript:otherCheck();" >
         <label>Undergraduate</label>
       </label>
       <label class="radio">
-          <input type="radio" id= "radio6" ng-model="user.edu" value="understu" onclick="javascript:otherCheck();">
+          <input type="radio" id= "radio6" ng-model="user.edu" value="understu" onclick="javascript:otherCheck();" >
           <label>Undergraduate Student</label>
       </label>
       <label class="radio">
-        <input type="radio" id= "radio7" ng-model="user.edu" value="other" onclick="javascript:otherCheck();">
+        <input type="radio" id= "radio7" ng-model="user.edu" value="other" onclick="javascript:otherCheck();" >
         <label>Other</label>
         </label>
       </div>
@@ -86,13 +147,13 @@
     <div class="form-group" id="ifOther" style="display:none">
       <div class="col-md-4">
         <input id="edu" ng-model="user.edu_other_spec" type="text" class="form-control input-md">
-        <span class="help-block">Please, specify here</span>  
+        <span class="help-block">Please, specify here.*</span>  
       </div>
     </div>
           
 
     <div class="row">
-        <label class="col-md-12">What is your current job? (You can select multiple options)?</label>
+        <label class="col-md-12">What is your current job? (You can select multiple options)?*</label>
     </div>
     <div class="form-group options">
         <div class="col-md-4 checkboxes">
@@ -111,13 +172,13 @@
     <div class="form-group" id="ifOther2" style="display:none">
         <div class="col-md-4">
         <input id="edu" ng-model="user.ocu_other_spec" type="text" class="form-control input-md">
-        <span class="help-block">Please, specify here</span>  
+        <span class="help-block">Please, specify here*</span>  
         </div>
     </div>
 
           
     <div class="row">
-      <label class="col-md-12">Please rate your expertise with</label>
+      <label class="col-md-12">Please rate your expertise with*</label>
     </div>
       
     <div  class='form-group'>
@@ -133,67 +194,50 @@
             </tr>
             <tr>
               <td >Software Development</td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="verypoor" checked required/> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="poor" checked /> </td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="fair" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="high" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="veryhigh" checked /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="verypoor" required /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="poor" /> </td>
+              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="fair"  /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="high" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.software_exp" value="veryhigh" /> </td> 
             </tr>
             <tr>
               <td>Code Review</td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="verypoor" checked required /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="poor" checked /> </td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="fair" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="high" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="veryhigh" checked /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="verypoor" required /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="poor" /> </td>
+              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="fair" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="high" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.cod_review" value="veryhigh" /> </td> 
             </tr>
             <tr>
               <td>Bug Reporting</td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="verypoor" checked required /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="poor" checked /> </td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="fair" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="high" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="veryhigh" checked /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="verypoor" required /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="poor" /> </td>
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="fair" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="high" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_rep" value="veryhigh" /> </td> 
             </tr>
             <tr>
               <td>Bug Fixing</td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="verypoor" checked required /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="poor" checked /> </td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="fair" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="high" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="veryhigh" checked /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="verypoor" required/> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="poor" /> </td>
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="fair" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="high" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.bug_fix" value="veryhigh" /> </td> 
             </tr>
             <tr>
               <td>Tests</td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="verypoor" checked required /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="poor" checked /> </td>
-              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="fair" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="high" checked /> </td> 
-              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="veryhigh" checked /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="verypoor" required /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="poor" /> </td>
+              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="fair" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="high" /> </td> 
+              <td style="text-align:center;"> <input type="radio" ng-model="user.tests" value="veryhigh" /> </td> 
               </tr>
         </table>
       </div>
     </div>
 
     <div class="row">
-        <label class="col-md-12">During a software development did you notice any changes that introduced bugs? If yes, how did you perceive the buggy code?</label>
-    </div>
-    <div class="form-group">
-      <div class="col-md-6">                  
-        <textarea id="text_buggy" name="text_buggy" class="form-control" ng-model="user.text_buggy" onchange="javascript:inputCheck();"></textarea>
-      </div>
-    </div>
-
-    <!-- Text input-->
-    <div class="form-group" style="display:none" name ="input_buggy" id="input_buggy">
-      <div class="col-md-6">
-        <input ng-model="user.input_buggy" type="text" class="form-control input-md">
-        <span class="help-block">Could you provide the address of this buggy code?</span>  
-      </div>
-    </div>
-          
-    <div class="row">
-        <label class="col-md-12">Have you ever contributed for open source projects? If yes, could you provide the addresses of these projects?</label>
+        <label class="col-md-12">Have you ever contributed for open source projects? If yes, could you provide the links of these projects?</label>
     </div>
     <div class="form-group">
       <div class="col-md-6">                  
@@ -222,6 +266,8 @@
 
     <button type="submit" class="btn btn-default btn-lg btn-block" style="width:100px" 
     ng-click="submit()" ng-disabled="inputForm.$invalid" class="btn btn-primary submit-button">Submit</button>
+
+    <!-- ng-disabled="inputForm.$invalid" -->
 
     <button type="button" class="btn btn-default btn-lg btn-block" style="width:100px" 
     ng-click="back()" class="btn btn-primary submit-button">Back</button>
