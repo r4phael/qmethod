@@ -857,8 +857,6 @@ app.controller("step6Ctrl",['promisedata','$scope', '$rootScope', '$state', '$ht
 			response.explanations.disagree.push({statementId:exp.statement.id,text:exp.explanation});
 		}
 
-		//Debug
-		console.log (JSON.stringify(response));
 
 		if (typeof rootRef != "undefined") {
 			rootRef.push(response, function (error) {
