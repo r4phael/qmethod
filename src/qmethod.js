@@ -817,8 +817,11 @@ app.controller("step6Ctrl",['promisedata','$scope', '$rootScope', '$state', '$ht
 			},
 			ratings: {},
 			explanations: {agree:[],disagree:[]},
-			questionnaire: {}
+			questionnaire: {},
+			datetime:{}
 		}
+
+		$scope.user.datetime = Date().toString();;
 		response.questionnaire = angular.copy($scope.user);
 
 		//Send statments final:
@@ -853,6 +856,9 @@ app.controller("step6Ctrl",['promisedata','$scope', '$rootScope', '$state', '$ht
 		for (let exp of $rootScope.explanations.disagree){
 			response.explanations.disagree.push({statementId:exp.statement.id,text:exp.explanation});
 		}
+
+		//Debug
+		console.log (JSON.stringify(response));
 
 		if (typeof rootRef != "undefined") {
 			rootRef.push(response, function (error) {
