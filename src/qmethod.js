@@ -150,8 +150,13 @@ var generateMyTd = function(id, rows, colour) {
 	// innerul attr	
 	var innerulDndListAttr = document.createAttribute('dnd-list');
 	innerulDndListAttr.value = "ratings.rating" + nId(id);
+
+	// NEw	
+	var innerulIdAttr = document.createAttribute('id');
+	innerulIdAttr.value = "ratings.rating" + nId(id);
+
 	var innerulDndDropAttr = document.createAttribute('dnd-drop');
-	innerulDndDropAttr.value = "dropCallback(index, item, external, type)";
+	innerulDndDropAttr.value = "dropCallback(event, index, item, external, type)";
 	var innerulDndDisableIfAttr = document.createAttribute('dnd-disable-if');
 	innerulDndDisableIfAttr.value = "ratings.rating"+nId(id)+".length >=" + rows;
 	var innerulStyleAttr = document.createAttribute('style');
@@ -160,6 +165,8 @@ var generateMyTd = function(id, rows, colour) {
 	innerul.setAttributeNode(innerulDndDropAttr);
 	innerul.setAttributeNode(innerulDndDisableIfAttr);
 	innerul.setAttributeNode(innerulStyleAttr);
+
+	innerul.setAttributeNode(innerulIdAttr);
 
 	var tooltipdiv = document.createElement('div');
 	// tooltipdiv attr	
@@ -495,6 +502,7 @@ app.controller("step3Ctrl",['promisedata','$scope', '$rootScope', '$state', func
 
 app.controller("step4Ctrl",['promisedata','$scope', '$rootScope', '$state','$compile', function (promisedata, $scope, $rootScope, $state, $compile) {
 
+
 	// //If user has distributed over normal distribution re-use it
 	$scope.ratings = [];
 	$scope.classifications = JSON.parse(JSON.stringify($rootScope.classifications));
@@ -506,6 +514,7 @@ app.controller("step4Ctrl",['promisedata','$scope', '$rootScope', '$state','$com
 		$scope.classifications.NEUTRAL = [];
 		$scope.classifications.DISAGREE = [];
 	}
+
 	var smallerLabel = {};
 		 smallerLabel.value = 0;
 		smallerLabel.rating_id = '';
@@ -546,6 +555,7 @@ app.controller("step4Ctrl",['promisedata','$scope', '$rootScope', '$state','$com
 		$rootScope.ratingsPosExtId = biggerLabel.value;
 		$rootScope.ratingsNegExtId = smallerLabel.value;
 	}
+	
 	if ((typeof $rootScope.tablecompiled == "undefined") &&
 	 typeof $rootScope.table != "undefined") {
 		//HIC SUNT DRACONES
@@ -584,6 +594,7 @@ app.controller("step4Ctrl",['promisedata','$scope', '$rootScope', '$state','$com
 		}
 		return ret;
 	};
+
 
 	$scope.dropDisagreeCallback = function (index, item, external, type) {
 		var ret = item.category == "disagree";
@@ -625,12 +636,16 @@ app.controller("step4Ctrl",['promisedata','$scope', '$rootScope', '$state','$com
 	$scope.back = function () {
 		delete $rootScope.tablecompiled;
 		delete $rootScope.ratings;
+		delete $rootScope.table;
 		$state.go('step3');
 	}
 
-	$scope.dropCallback = function (index, item, external, type) {
+	$scope.dropCallback = function (event, index, item, external, type) {
+		//var attrId = event.target.id;
+		//$scope.$eval(attrId).splice(index, 0, item); 
 		return item;
 	}
+
 	if (debugging) {
 		$scope.help = function() {
 			var concatlists = [];
