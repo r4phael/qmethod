@@ -712,6 +712,7 @@ app.controller("step5Ctrl", function ($scope, $rootScope, $state) {
 
 	$scope.done = function () {
 		var explanationsDone = 1;
+		if (typeof $rootScope.explanations != "undefined"){
 		for (var key in $rootScope.explanations.agree){
 			//prevent overflow
 			explanationsDone = explanationsDone *
@@ -720,6 +721,7 @@ app.controller("step5Ctrl", function ($scope, $rootScope, $state) {
 		for (var key in $rootScope.explanations.disagree){
 			explanationsDone = explanationsDone*
 			($rootScope.explanations.disagree[key].explanation.length > 0 ? 1 : 0); } return explanationsDone > 0;
+		}
 	}
 
 	$scope.next = function () {
@@ -728,6 +730,7 @@ app.controller("step5Ctrl", function ($scope, $rootScope, $state) {
 
 	$scope.back = function () {
 		$state.go('step4');
+		delete $rootScope.explanations;
 	}
 
 	String.prototype.isEmpty = function () {
